@@ -1,13 +1,13 @@
 @extends('layouts.master')
-@section('content')
-<div class="alert alert-primary" role="alert">
-            <center><h1> A simple Data Form </h1></center> 
+<div>
+        @include('header') 
 </div>
+@section('content')
      <div class="limiter">
        <div class="container100">
         
             <div class="wraplogin100">
-                <form  class="login100-form" action=" {{ URL::to('processes.edit/{$products->id}') }}" method="post"  >
+                <form  class="login100-form" action=' {{ URL::to("processes.edit/{$product->id}") }}' method="post"  >
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     @if(count($errors) > 0)
@@ -19,17 +19,17 @@
                     @endif
 
                     <div class="wrap-input100 " >
-                        <input class="input100" type="text" id="name" name="name" value="<?php echo $products->name; ?>" placeholder="Enter Product Name">
+                        <input class="input100" type="text" id="name" name="name" value="<?php echo $product->name; ?>" placeholder="Enter Product Name">
                         <span class="focus-input100" ></span>
                     </div>
 
                     <div class="wrap-input100 " >
-                        <input class="input100" type="text" id="category" name="category" value="<?php echo $products->category; ?>" placeholder="Enter Product Category">
+                        <input class="input100" type="text" id="category" name="category" value="<?php echo $product->category; ?>" placeholder="Enter Product Category">
                         <span class="focus-input100" ></span>
                     </div>
 
                     <div class="wrap-input100 " >
-                        <input class="input100" type="number" id="price" name="price" value="<?php echo $products->price; ?>" placeholder="Enter Product Price">
+                        <input class="input100" type="number" id="price" name="price" value="<?php echo $product->price; ?>" placeholder="Enter Product Price">
                         <span class="focus-input100" ></span>
                     </div>
 

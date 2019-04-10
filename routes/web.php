@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('blogs.index' , function(){
 	return view('blogs.index') ;
 });
+Route::get('processes.select' , function(){
+	return view('processes.select') ;
+});
 
 Route::get('processes.select' , 'CreateController@home') ;
 Route::post('processes.create' , 'CreateController@insert') ;
@@ -28,3 +31,4 @@ Route::post('blogs.index' , function(){
 
 Route::get('processes.update/{id}' , 'CreateController@update') ;
 Route::post('processes.edit/{id}' , 'CreateController@edit') ;
+Route::get('processes.delete/{id}' , 'CreateController@delete') ;

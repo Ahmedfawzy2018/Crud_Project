@@ -1,13 +1,13 @@
 @extends('layouts.master')
+    @include('header')
 @section('content')
-<div class="alert alert-primary" role="alert">
-            <center><h1> A simple Data Form </h1></center> 
-</div>
+
      <div class="limiter">
        <div class="container100">
-        
             <div class="wraplogin100">
+                <h3>Enter New Product </h3>
                 <form  class="login100-form" action=" {{ URL::to('processes.create') }}" method="post"  >
+
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     @if(count($errors) > 0)

@@ -8,8 +8,8 @@ class CreateController extends Controller
 {
     public function home()
     {
-    	$products = Article::all();
-    	return view('processes.select', ['products' => $products]) ;
+    	$product = Article::all();
+    	return view('processes.select', ['product' => $product]) ;
     }
 
     public function insert(Request $request)
@@ -30,8 +30,8 @@ class CreateController extends Controller
 
     public function update($id)
     {
-    	$products = Article::find($id);
-    	return view('processes.update' , ['products' => $products]) ;
+    	$product = Article::find($id);
+    	return view('processes.update' , ['product' => $product]) ;
     }
 
     public function edit(Request $request , $id)
@@ -47,10 +47,16 @@ class CreateController extends Controller
     		'category' => $request->input('category'),
     		'price' => $request->input('price')
     	);
+   
+    	Article::where('id' , $id)->update($data) ;
 
-    	Article::where('id' , $id)
-    	->update($data) ;
     	return redirect('processes.select')->with('info', 'Product Updated Successfully') ;
 
+    }
+
+    public function delete($id)
+    {
+    	Article::where('id' , $id)->delete();
+    	return redirect('processes.select')->with('info', 'Product Deleted Successfully') ;
     }
 }

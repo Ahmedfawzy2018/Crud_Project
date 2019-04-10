@@ -29,7 +29,6 @@
 <script type="text/javascript" src="{{ url('js/login.js') }}"></script>
 </head>
 <body>
-    
     <div>
         @yield('content') ;
     </div>

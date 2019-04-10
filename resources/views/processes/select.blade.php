@@ -1,4 +1,7 @@
 @extends('layouts.master')
+<div>
+    @include('header') 
+</div>
 @section('content')
 <div class="container">
 	<div class="row">
@@ -17,15 +20,15 @@
 				</tr>
 			</thead>
 			<tbody>
-				@if(count($products) > 0)
-				@foreach($products->all() as $product)
+				@if(count($product) > 0)
+				@foreach($product->all() as $product)
 				<tr>
 					<td>{{ $product->name }}</td>
 					<td>{{ $product->category }}</td>
 					<td>{{ $product->price }}</td>
 					<td>
-						<a href='{{ url("processes.update/$product->id") }}' class="label label-success">Update</a> |
-						<a href="{{ url('') }}" class="label label-danger">Delete</a>
+						<a href='{{ url("processes.update/{$product->id}") }}' class="label label-success">Update</a> |
+						<a href='{{ url("processes.delete/{$product->id}") }} ' class="label label-danger">Delete</a>
 					</td>
 				</tr>
 				@endforeach
