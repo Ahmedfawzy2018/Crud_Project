@@ -1,57 +1,36 @@
-@extends('layouts.master')
-    @include('header')
+@extends('layouts.app')
 @section('content')
 
-     <div class="limiter">
-       <div class="container100">
-            <div class="wraplogin100">
-                <h3>Enter New Product </h3>
-                <form  class="login100-form" action=" {{ URL::to('processes.create') }}" method="post"  >
+<p style="text-align: center;">Fill in form the required data to Insert New Product .</p>
+<div class="container">  
+  <form id="contact" action=" {{ URL::to('processes.create') }}" method="post">
+     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                    @if(count($errors) > 0)
-                    @foreach($errors->all() as $error)
-                    <div class="alert alert-danger">
-                        {{$error}}
-                    </div>
-                    @endforeach
-                    @endif
-
-                    <div class="wrap-input100 " >
-                        <input class="input100" type="text" id="name" name="name"  placeholder="Enter Product Name">
-                        <span class="focus-input100" ></span>
-                    </div>
-
-                    <div class="wrap-input100 " >
-                        <input class="input100" type="text" id="category" name="category"  placeholder="Enter Product Category">
-                        <span class="focus-input100" ></span>
-                    </div>
-
-                    <div class="wrap-input100 " >
-                        <input class="input100" type="number" id="price" name="price" placeholder="Enter Product Price">
-                        <span class="focus-input100" ></span>
-                    </div>
-
-                    
-                    <div class="container-login100-form-btn">
-                        <div class="wrap-login100-form-btn">
-                            <div class="login100-form-bgbtn"></div>
-                            <button class="login100-form-btn" type="submit" name="submit" onclick="">
-                                Submit
-                            </button>
-                        </div>
-                    </div>
-
-                     <div class="text-center p-t-15">
-                        <a class="txt2" href="{{ URL::to('processes.select')}}">
-                            Display List Of Products
-                        </a>
-                    </div>
-
-                    </div>
-                </form>
-            </div>
+    <h3>CashCrud Product Form</h3>
+    
+    @if(count($errors) > 0)
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger">
+            {{$error}}
         </div>
-    </div>
+    @endforeach
+    @endif
+    <fieldset>
+      <input class="input100" type="text" id="name" name="name"  placeholder="Enter Product Name">
+    </fieldset>
+    <fieldset>
+       <input class="input100" type="text" id="category" name="category"  placeholder="Enter Product Category">
+    </fieldset>
+    <fieldset>
+      <input class="input100" type="text" id="price" name="price" placeholder="Enter Product Price">
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+        <a class="txt2" href="{{ route('items') }}">
+                Display List Of Products
+        </a>
+  </form>
+</div>
 @endsection
+

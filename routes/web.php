@@ -12,17 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name('index');
 
 Route::get('blogs.index' , function(){
 	return view('blogs.index') ;
-});
+})->name('blogs.index');
+
 Route::get('processes.select' , function(){
 	return view('processes.select') ;
-});
+})->name('items');
 
-Route::get('processes.select' , 'CreateController@home') ;
+Route::get('processes.select' , 'CreateController@home')->name('items');
 Route::post('processes.create' , 'CreateController@insert') ;
 
 Route::post('blogs.index' , function(){
@@ -32,3 +33,9 @@ Route::post('blogs.index' , function(){
 Route::get('processes.update/{id}' , 'CreateController@update') ;
 Route::post('processes.edit/{id}' , 'CreateController@edit') ;
 Route::get('processes.delete/{id}' , 'CreateController@delete') ;
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

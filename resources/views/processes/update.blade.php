@@ -1,7 +1,4 @@
-@extends('layouts.master')
-<div>
-        @include('header') 
-</div>
+@extends('layouts.app')
 @section('content')
      <div class="limiter">
        <div class="container100">
