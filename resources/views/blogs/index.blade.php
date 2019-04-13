@@ -25,6 +25,9 @@
       <input class="input100" type="text" id="price" name="price" placeholder="Enter Product Price">
     </fieldset>
     <fieldset>
+      <textarea class="input100" id="description" name="description" placeholder="Enter Product Description" rows="3"></textarea>
+    </fieldset>
+    <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
         <a class="txt2" href="{{ route('items') }}">

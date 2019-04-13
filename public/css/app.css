@@ -128,3 +128,18 @@ fieldset {
 :-ms-input-placeholder {
   color: #888;
 }
+
+
+.homelayout h1{
+	margin-top:150px; 
+	text-align: center;
+	font-family: monospace;
+	font-size: 28px;
+	text-shadow: 1px gray;
+}
+.homelayout p{
+	text-align: center;
+	font-family: monospace;
+	font-size: 28px;
+	text-shadow: 1px gray;
+}

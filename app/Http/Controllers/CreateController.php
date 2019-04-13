@@ -19,13 +19,15 @@ class CreateController extends Controller
     	$this->validate($request , [
     	'name' => 'required' ,
     	'category' => 'required',
-    	'price' => 'required'
+    	'price' => 'required',
+        'description' => 'required'
     	]) ;
 
     	$product = new Article();
     	$product->name = $request->input('name') ;
     	$product->category = $request->input('category') ;
     	$product->price = $request->input('price') ;
+        $product->description = $request->input('description') ;
     	$product->save() ;
     	return redirect('processes.select')->with('info', 'Product Added Successfully') ;
     }
@@ -41,13 +43,15 @@ class CreateController extends Controller
     	$this->validate($request , [
     	'name' => 'required' ,
     	'category' => 'required',
-    	'price' => 'required'
+    	'price' => 'required' ,
+        'description' =>'required'
     	]) ;
 
     	$data = array(
     		'name' => $request->input('name'),
     		'category' => $request->input('category'),
-    		'price' => $request->input('price')
+    		'price' => $request->input('price') ,
+            'description' =>$request->input('description')
     	);
    
     	Article::where('id' , $id)->update($data) ;
@@ -60,5 +64,12 @@ class CreateController extends Controller
     {
     	Article::where('id' , $id)->delete();
     	return redirect('processes.select')->with('info', 'Product Deleted Successfully') ;
+    }
+
+    public function read($id)
+    {
+        $product = Article::find($id);
+        return view('processes.read' , ['product' => $product]) ;
+
     }
 }

@@ -24,6 +24,7 @@
 					<td>{{ $product->category }}</td>
 					<td>{{ $product->price }}</td>
 					<td>
+						<a href='{{ url("processes.read/{$product->id}") }}' class="label label-primary">Read</a> |
 						<a href='{{ url("processes.update/{$product->id}") }}' class="label label-success">Update</a> |
 						<a href='{{ url("processes.delete/{$product->id}") }} ' class="label label-danger">Delete</a>
 					</td>

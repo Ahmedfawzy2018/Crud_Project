@@ -33,7 +33,7 @@ Route::post('blogs.index' , function(){
 Route::get('processes.update/{id}' , 'CreateController@update') ;
 Route::post('processes.edit/{id}' , 'CreateController@edit') ;
 Route::get('processes.delete/{id}' , 'CreateController@delete') ;
-
+Route::get('processes.read/{id}' , 'CreateController@read') ;
 
 
 Auth::routes();
